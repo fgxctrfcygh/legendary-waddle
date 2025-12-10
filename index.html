@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let odam1 ={
+     name: "Teacher",
+     age: 21,
+     jins: "erkak",
+ }
+
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.myFC = function(){
+    console.log(`Salom, mening ismim: ${this.name}, !`);
+}
+
+let person1 = new Person(prompt("Ismingizni Kiriting"));
+person1.myFC();
+
+
+
+function Odam(age){
+    this.age = age;
+}
+
+Odam.prototype.asad = function(){
+    console.log(`yoshim: ${this.age}`)
+}
+
+let ag1 = new Odam(prompt("Yoshingizni kiriting"));
+ag1.asad();
+
+
+function Animal(){}
+Animal.prototype.gapir = function(){
+    console.log("moshinani baloni tortta")
+}
+
+function Dog(name){
+    this.name = name;
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.saloh = function(){
+    console.log(`car ${this.name} !`)
+}
+
+Dog.prototype.jamaCopy = function(){
+    console.log("car");
+}
+
+let myDog = new Dog("car");
+myDog.saloh();
+myDog.jamaCopy();
+myDog.gapir();
+class User {
+    constructor (firstName, lastName){
+        this._firstName = firstName;
+        this._lastName = lastName;
+    }
+
+    get fullName(){
+        return `${this._firstName} ${this._lastName}`;
+    }
+
+    set fullName(value){
+        [this._firstName, this._lastName] = value.split(" ");
+    }
+
+    get firstName (){
+        return this._firstName;
+    }
+
+    set firstName(value){
+        this._firstName = value;
+    }
+
+    get lastName (){
+        return this._lastName;
+    }
+
+    set lastName(value){
+        this._lastName = value;
+    }
+}
+
+let admin = new User("teacher");
+console.log(admin.fullName);
+
+admin.firstName = "IT ";
+admin.lastName = "Teacher";
+
+console.log(admin.fullName);
+
+
+    </script>
+</body>
+</html>
